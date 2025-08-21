@@ -3,15 +3,13 @@
 A Node.js Discord bot that monitors and logs message deletions and voice channel activity.
 
 ## Features
-
-- 🗑️ **Message Deletion Monitoring**: Logs deleted messages with content, author, and timestamp
-- 🔊 **Voice Channel Activity**: Tracks when users join, leave, or switch voice channels
-- 📊 **Rich Embeds**: Beautiful formatted notifications with color coding
-- 🔒 **Secure Configuration**: Uses environment variables for sensitive data
-- ⚡ **Real-time Monitoring**: Instant notifications for all monitored events
+- 🗑️ **Message Deletion Monitoring**: Logs deleted messages with content, author, and timestamp.
+- 🔊 **Voice Channel Activity**: Tracks when users join, leave, or switch voice channels.
+- ✨ **Rich Embeds**: Beautifully formatted notifications with color coding.
+- 🔒 **Secure Configuration**: Uses environment variables for bot token and log channel.
+- ⚡ **Real-time Monitoring**: Instant notifications for all monitored events.
 
 ## Prerequisites
-
 - Node.js (version 16.0.0 or higher)
 - A Discord bot token
 - A Discord server where you have administrator permissions
@@ -19,39 +17,50 @@ A Node.js Discord bot that monitors and logs message deletions and voice channel
 ## Setup Instructions
 
 ### 1. Create a Discord Bot
+1. Go to the [Discord Developer Portal].  
+2. Click **"New Application"** → name your bot.  
+3. Navigate to the **"Bot"** section → click **"Add Bot"**.  
+4. Under **Token**, click **"Copy"** to save your bot token.  
+5. Under **Privileged Gateway Intents**, enable:
+   - **Message Content Intent**
+   - **Server Members Intent** (optional, for richer user information)
 
-1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
-2. Click "New Application" and give it a name
-3. Go to the "Bot" section in the left sidebar
-4. Click "Add Bot"
-5. Under "Token", click "Copy" to get your bot token
-6. Under "Privileged Gateway Intents", enable:
-   - Message Content Intent
-   - Server Members Intent (optional, for better user info)
-
-### 2. Invite Bot to Your Server
-
-1. Go to the "OAuth2" > "URL Generator" section
-2. Select these scopes:
-   - `bot`
-3. Select these bot permissions:
+### 2. Invite the Bot to Your Server
+1. Go to **OAuth2 → URL Generator** section.  
+2. Select scope: `bot`.  
+3. Grant these permissions:
    - View Channels
    - Send Messages
    - Read Message History
-   - Connect (for voice channel monitoring)
-4. Copy the generated URL and open it in your browser
-5. Select your server and authorize the bot
+   - Connect (for voice channel monitoring)  
+### 4. Copy the generated invite URL → paste in browser → select your server → authorize.
 
 ### 3. Configure Environment Variables
+Create a file named `.env` in the project root with the following content:
+```env
+BOT_TOKEN=your_bot_token_here
+LOG_CHANNEL_ID=your_log_channel_id_here
+```
 
-1. Copy the provided `.env` file
-2. Replace `BOT_TOKEN` with your actual bot token
-3. Replace `LOG_CHANNEL_ID` with the ID of the channel where you want logs:
-   - Enable Developer Mode in Discord (User Settings > Advanced > Developer Mode)
-   - Right-click on your desired log channel
-   - Select "Copy ID"
+- To get `LOG_CHANNEL_ID`, enable Developer Mode in Discord settings → right-click your desired channel → Copy ID.
 
-### 4. Install Dependencies
+### 5. Run the Bot
+```
+npm start
+```
 
-```bash
-npm install discord.js dotenv
+Or:
+```
+node index.js
+```
+
+### Preview
+
+### Deleted Message
+<img width="760" height="267" alt="Screenshot 2025-08-21 212225" src="https://github.com/user-attachments/assets/efc70f42-f587-4e13-9218-982cc3cbd25f" />
+
+### Voice Activity
+<img width="650" height="604" alt="Screenshot 2025-08-21 212156" src="https://github.com/user-attachments/assets/66768419-7c25-40fe-8277-0b7ca0b32d9a" />
+
+
+
